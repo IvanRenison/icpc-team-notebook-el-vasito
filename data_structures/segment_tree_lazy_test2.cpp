@@ -1,5 +1,5 @@
-// SPOJ HORRIBLE - AC
-// http://www.spoj.com/problems/HORRIBLE/
+// CSES Range Updates and Sums - AC
+// https://cses.fi/problemset/task/1735
 #include <bits/stdc++.h>
 #define pb push_back
 #define mp make_pair
@@ -9,12 +9,31 @@
 using namespace std;
 typedef long long ll;
 
+struct Lazy {
+	bool set; // if true set, if false add
+	ll v;
+
+	Lazy() : set(false), v(0) {}
+	Lazy(bool set, ll v) : set(set), v(v) {}
+
+	bool operator==(Lazy o) const {
+		return set==o.set && v==o.v;
+	}
+};
+
+const Lazy lneut = {false, 0};
 struct STree { // example: range sum with range addition
-	typedef ll T; typedef ll L; // T: data type, L: lazy type
-	constexpr static T tneut = 0; constexpr static L lneut = 0; // neutrals
+	typedef ll T; typedef Lazy L; // T: data type, L: lazy type
+	constexpr static T tneut = 0; // neutrals
 	T oper(T a, T b){return a+b;}
-	T apply(T v, L l, int s, int e) {return v+l*(e-s);} // new st according to lazy
-	L prop(L a, L b) {return a+b;} // cumulative effect of lazy
+	T apply(T v, L l, int s, int e) {
+		if (l.set) return l.v*(e-s);
+		return v+l.v*(e-s);
+	} // new st according to lazy
+	L prop(L a, L b) {
+		if (b.set) return b;
+		return L(a.set, a.v+b.v);
+	} // cumulative effect of lazy
 
 	vector<T> st;vector<L> lazy;int n;
 	STree(int n): st(4*n+5,tneut), lazy(4*n+5,lneut), n(n) {}
@@ -57,24 +76,24 @@ struct STree { // example: range sum with range addition
 	T query(int a, int b){return query(1,0,n,a,b);}
 }; // usage: STree rmq(n);rmq.init(x);rmq.upd(s,e,v);rmq.query(s,e);
 
-int n,q;
-
 int main(){
-	int tn;
-	scanf("%d",&tn);
-	while(tn--){
-		scanf("%d%d",&n,&q);
-		STree st(n);
-		while(q--){
-			int t,s,e;
-			scanf("%d%d%d",&t,&s,&e);s--;
-			if(!t){
-				int v;
-				scanf("%d",&v);
-				st.upd(s,e,v);
-			}
-			else printf("%lld\n",st.query(s,e));
+	ll n,q;
+	cin>>n>>q;
+	vector<ll> ts(n);
+	fore(i,0,n) cin>>ts[i];
+	STree t(n);t.init(ts);
+	while(q--) {
+		ll ty,a,b,x;
+		cin>>ty>>a>>b;
+		if(ty==1) {
+			cin>>x;
+			t.upd(a-1,b,{false,x});
 		}
+		else if(ty==2) {
+			cin>>x;
+			t.upd(a-1,b,{true,x});
+		}
+		else cout<<t.query(a-1,b)<<'\n';
 	}
 	return 0;
 }
