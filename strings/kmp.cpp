@@ -14,3 +14,14 @@ void kmp(string& s, string& t){ // find t in s
 		if(++j==t.size())printf("Match at %d\n",i-j+1),j=b[j];
 	}
 }
+//KMP automaton
+const int MAXN=1e5,MAXC=26;
+int wh[MAXN+2][MAXC];//wh[i][j] = jump when adding j to prefix of size i
+void build(string &s){
+	fore(j,0,MAXC) wh[0][j]=0;
+	int lps=0; wh[0][s[0]-'a'] = 1;
+	fore(i,1,SZ(s)+1){
+		fore(j,0,MAXC) wh[i][j]=wh[lps][j];
+		if(i<SZ(s)) wh[i][s[i]-'a'] = i+1, lps = wh[lps][s[i]-'a'];
+	}
+}
