@@ -1,3 +1,4 @@
+// Querys of i-th element in segment if segment was sorted
 struct WT {
 	vector<int> wt[1<<20];int n;
 	void init(int k, int s, int e){
