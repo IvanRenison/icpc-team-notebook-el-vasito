@@ -25,3 +25,5 @@ vector<int> get_path(int x){ // get a path that begins in x
 	p.clear();go(x);reverse(p.begin(),p.end());
 	return p;
 }
+// A eulerian path exists in a non directed graph iff it's connected and the amount of even degrees is 0 or 2
+// And in a non-directed iff it's connected ∀v in(v) = out(v) or that but there is u, w such than in(u) = out(u) + 1, in(v) + 1 = out(v)

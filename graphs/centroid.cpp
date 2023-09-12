@@ -1,3 +1,5 @@
+// centroid of a tree is a node that is at the middle of the Nodes
+// It has trees of size at most n/2 at each side
 vector<int> g[MAXN];int n;
 bool tk[MAXN];
 int fat[MAXN]; // father in centroid decomposition

@@ -1,3 +1,4 @@
+// Like a set but with the ability to split and merge
 typedef struct item *pitem;
 struct item {
 	int pr,key,cnt;
@@ -18,6 +19,7 @@ void insert(pitem& t, pitem it){
 	else insert(it->key<t->key?t->l:t->r,it);
 	upd_cnt(t);
 }
+// Merge if all values of l are less or equal than than all values of r
 void merge(pitem& t, pitem l, pitem r){
 	if(!l||!r)t=l?l:r;
 	else if(l->pr>r->pr)merge(l->r,l->r,r),t=l;

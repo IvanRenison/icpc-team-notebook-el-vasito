@@ -1,3 +1,4 @@
+// Tree with path querys
 vector<int> g[MAXN];
 int wg[MAXN],dad[MAXN],dep[MAXN]; // weight,father,depth
 void dfs1(int x){
@@ -18,6 +19,7 @@ void hld(int x, int c){
 }
 void hld_init(){dad[0]=-1;dep[0]=0;dfs1(0);curpos=0;hld(0,-1);}
 int query(int x, int y, STree& rmq){
+	// rmq has to have the values of the edges
 	int r=NEUT;
 	while(head[x]!=head[y]){
 		if(dep[head[x]]>dep[head[y]])swap(x,y);
