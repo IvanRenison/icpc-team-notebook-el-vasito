@@ -1,4 +1,4 @@
-// Like treat but for an array (the elements are ordered by list position)
+// Like treap but for an array (the elements are ordered by list position)
 // example that supports range reverse and addition updates, and range sum query
 // (commented parts are specific to this  problem)
 typedef struct item *pitem;
