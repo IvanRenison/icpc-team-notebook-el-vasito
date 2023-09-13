@@ -1,6 +1,6 @@
 // Articulation = node witch removal disconnects the component
 // Bridge = edge witch removal disconnects the component
-// Biconnected = two or more path between any pair of nodes
+// Biconnected = two or more paths between any pair of nodes
 vector<int> g[MAXN];int n;
 struct edge {int u,v,comp;bool bridge;};
 vector<edge> e;
