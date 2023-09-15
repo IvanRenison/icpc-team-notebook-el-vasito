@@ -6,7 +6,7 @@ struct halfplane:public ln{
 	bool operator<(halfplane b)const{return angle<b.angle;}
 	bool out(pt q){return pq%(q-p)<-EPS;}
 };
-vector<pt> intersect(vector<halfplane> b){
+vector<pt> intersect(vector<halfplane> b){ // O(n*log(n))
 	vector<pt>bx={{DINF,DINF},{-DINF,DINF},{-DINF,-DINF},{DINF,-DINF}};
 	fore(i,0,4) b.pb(halfplane(bx[i],bx[(i+1)%4]));
 	sort(ALL(b));

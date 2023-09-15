@@ -11,7 +11,7 @@ void fht(ll* p, int n, bool inv){
 	}
 }
 // like polynomial multiplication, but XORing exponents
-// instead of adding them (also ANDing, ORing)
+// instead of adding them (also ANDing, ORing) in O(n*log(n))
 vector<ll> multiply(vector<ll>& p1, vector<ll>& p2){
 	int n=1<<(32-__builtin_clz(max(SZ(p1),SZ(p2))-1));
 	fore(i,0,n)c1[i]=0,c2[i]=0;

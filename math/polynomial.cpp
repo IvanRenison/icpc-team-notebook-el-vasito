@@ -32,6 +32,7 @@ struct poly {  // poly<> : 1 variable, poly<poly<>>: 2 variables, etc.
 		return sum;
 	}
 };
+// Find rational roots
 // example: p(x,y)=2*x^2+3*x*y-y+4
 // poly<poly<>> p={{4,-1},{0,3},{2}}
 // printf("%d\n",p(2)(3)) // 27 (p(2,3))
@@ -46,7 +47,7 @@ set<tp> roots(poly<> p){ // only for integer polynomials
 	fore(i,1,sqrt(a0)+1)if(a0%i==0)ps.pb(i),ps.pb(a0/i);
 	fore(i,1,sqrt(an)+1)if(an%i==0)qs.pb(i),qs.pb(an/i);
 	for(auto pt:ps)for(auto qt:qs)if(pt%qt==0){
-		tp x=pt/qt;
+		tp x=pt/qt; // If roots are not integer, change tp
 		if(!p(x))r.insert(x);
 		if(!p(-x))r.insert(-x);
 	}
