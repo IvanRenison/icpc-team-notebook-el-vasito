@@ -235,7 +235,7 @@
 
 \begin{itemize}
 	\item \# of disjoint s-t paths = min-cut
-	\item $\forall X: |Vecinos(X)| >= |X| \iff$ perfect matching
+	\item $\forall X: |Vecinos(X)| \geq |X| \iff$ perfect matching
 	\item $|\text{Largest antichain}|$ = $|\text{smallest chain decomposition}|$
 	\item $|Max Matching| = |min Vertex Cover|$
 	\item Rebuild cover $(A-Z)\cup(B\cap Z)$ Z = unmatched from $L$ + reachable by alternating paths
@@ -248,7 +248,7 @@
 	void cover() {L.assign(n, 1); R.assign(m, 0);
 		fore(i,0,n)if(mt2[i]<0)dfs2(i,0);
 	}\end{code}
-	\item Vertices in all matchings. Orient matched edges L->R, and others R->L, $v$ can be omitted if:
+	\item Vertices in all matchings. Orient matched edges L $\rightarrow$ R, and others R $\rightarrow$ L, $v$ can be omitted if:
 		\begin{itemize}
 			\item v is unmatched
 			\item v can be reached from an unmatched vertex ON ITS SIDE
