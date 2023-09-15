@@ -1,4 +1,4 @@
-vector<int> g[MAXN]; // [0,n)->[0,m)
+vector<int> g[MAXN]; // [0,n)->[0,m) // O(n*sqrt(m))
 int n,m;
 int mt[MAXN],mt2[MAXN],ds[MAXN];
 bool bfs(){

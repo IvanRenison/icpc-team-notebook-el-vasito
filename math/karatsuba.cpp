@@ -1,3 +1,4 @@
+// Multiply two polynomials in O(n^(log2(3)))
 typedef ll tp;
 #define add(n,s,d,k) fore(i,0,n)(d)[i]+=(s)[i]*k
 tp* ini(int n){tp *r=new tp[n];fill(r,r+n,0);return r;}

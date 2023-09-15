@@ -3,7 +3,7 @@
 // big mod and primitive root for NTT:
 typedef ll tf;
 typedef vector<tf> poly;
-const tf MOD=2305843009255636993,RT=5;
+const tf MOD=2305843009255636993,RT=5; // Also valid: MOD=998244353
 // FFT
 struct CD {
 	double r,i;

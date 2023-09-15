@@ -1,6 +1,6 @@
 // Min cut: nodes with dist>=0 vs nodes with dist<0
 // Matching MVC: left nodes with dist<0 + right nodes with dist>0
-struct Dinic{
+struct Dinic{ // O(n^2*m), less if capacity's are 1
 	int nodes,src,dst;
 	vector<int> dist,q,work;
 	struct edge {int to,rev;ll f,cap;};

@@ -17,7 +17,7 @@ struct MCF{
 		tf flow=0; tc flowcost=0;
 		while(1){
 			q.push({0, s});
-			fill(ALL(prio),INFCOST); 
+			fill(ALL(prio),INFCOST);
 			prio[s]=0; curflow[s]=INFFLOW;
 			while(!q.empty()) {
 				auto cur=q.top();
