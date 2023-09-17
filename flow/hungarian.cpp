@@ -1,7 +1,7 @@
 typedef long double td; typedef vector<int> vi; typedef vector<td> vd;
 const td INF=1e100;//for maximum set INF to 0, and negate costs
 bool zero(td x){return fabs(x)<1e-9;}//change to x==0, for ints/ll
-struct Hungarian{
+struct Hungarian{ // O(n^3)
     int n; vector<vd> cs; vi L, R;
     Hungarian(int N, int M):n(max(N,M)),cs(n,vd(n)),L(n),R(n){
         fore(x,0,N)fore(y,0,M)cs[x][y]=INF;

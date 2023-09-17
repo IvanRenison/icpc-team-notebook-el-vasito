@@ -1,3 +1,4 @@
+// Compute distance from a node to the rest of the nodes in a graph with negative edges
 int n;
 vector<pair<int,int> > g[MAXN]; // u->[(v,cost)]
 ll dist[MAXN];

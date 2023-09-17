@@ -1,5 +1,6 @@
+// Find the shortest linear recurrence of the given sequence
 typedef vector<int> vi;
-vi BM(vi x){
+vi BM(vi x){ // O(n^2)
 	vi ls,cur;int lf,ld;
   fore(i,0,SZ(x)){
 		ll t=0;
