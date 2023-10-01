@@ -1,4 +1,4 @@
-// Tree with path querys
+// Tree with values updates and path querys
 vector<int> g[MAXN];
 int wg[MAXN],dad[MAXN],dep[MAXN]; // weight,father,depth
 void dfs1(int x){
