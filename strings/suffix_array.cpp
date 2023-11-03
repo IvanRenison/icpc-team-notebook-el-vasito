@@ -1,4 +1,5 @@
 #define RB(x) (x<n?r[x]:0)
+// In RB change 0 by something big if you whant "a" > "ab" (short string bigger than longer)
 void csort(vector<int>& sa, vector<int>& r, int k){
 	int n=sa.size();
 	vector<int> f(max(255,n),0),t(n);
