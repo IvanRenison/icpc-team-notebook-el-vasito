@@ -1,5 +1,5 @@
 vector<int> computeLCP(string& s, vector<int>& sa){
-	int n=s.size(),L=0;
+	int n=s.size(),L=0; // put in sa the output of sufix array
 	vector<int> lcp(n),plcp(n),phi(n);
 	phi[sa[0]]=-1;
 	fore(i,1,n)phi[sa[i]]=sa[i-1];
