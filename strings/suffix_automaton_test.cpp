@@ -6,12 +6,8 @@ typedef long long ll;
 
 struct SuffixAuto {
 	struct state {int len,link;map<char,int> next;};
-	vector<state> st; // You can preallocate 2*MAXN+1
-	int last;
-	SuffixAuto() {
-		st.push_back({0,-1,{}});
-		last=0;
-	}
+	vector<state> st={{0,-1,{}}};
+	int last=0;
 	void extend(char c){
 		int k=st.size(),p;
 		st.push_back({st[last].len+1,0,{}});
