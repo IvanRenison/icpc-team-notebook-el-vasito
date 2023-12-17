@@ -9,14 +9,14 @@
 using namespace std;
 typedef long long ll;
 
-#include<ext/pb_ds/assoc_container.hpp>
-#include<ext/pb_ds/tree_policy.hpp>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
 using namespace __gnu_pbds;
-typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> ordered_set;
-// find_by_order(i) -> iterator to ith element
+template<typename T>
+using ordered_set = tree<T,null_type,less<T>,rb_tree_tag,tree_order_statistics_node_update>;// find_by_order(i) -> iterator to ith element
 // order_of_key(k) -> position (int) of lower_bound of k
 
-ordered_set ss;
+ordered_set<int> ss;
 int n,q;
 
 int find(int x){
